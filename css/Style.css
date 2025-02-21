@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gray;
+}
+section{
+    margin: 50px 30px;
+}
+div{
+    margin: 30px 0px;
+}
+h1{
+    color: black;
+}
+p{
+    color: black;
+}
+form{
+    display: block;
+    background-color: wheat;
+    border-radius: 15px;
+    padding:40px;
+}
+.titulo{
+    text-align: center;
+    align-content: center;
+    padding: 20px;
+}
+.subtitulo{
+    padding: 0px 40px;
+    p{
+        color: blueviolet;
+        font-size: x-large;
+    }
+}
+#resultados{
+    text-align: center;
+}

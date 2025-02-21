@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrega N°2</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>Solicitud de Compras</h1>
+    </div>
+    <div class="subtitulo">
+        <p>Datos Personales</p>
+    </div>
+    <section>
+        <form id="formularioCompras" action="/enviar_datos" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" /><br /><br />
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" /><br /><br />
+            <label for="pais">País:</label>
+            <select id="pais" name="pais">
+                <option value="argentina">Argentina</option>
+                <option value="mexico">México</option>
+                <option value="uruguay">Uruguay</option>
+                <option value="chile">Chile</option>
+            </select><br /><br />
+            <label for="articulo">Articulo:</label>
+            <input type="text" id="articulo" name="Articulo" /><br /><br />
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="Cantidad" name="Cantidad" /><br /><br />
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <section id="resultados">
+        <h2>Resumen de la solicitud</h2>
+        <div id="resumenCompra">
+        </div>
+        
+    </section>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
