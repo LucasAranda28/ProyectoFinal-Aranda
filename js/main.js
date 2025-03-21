@@ -13,7 +13,11 @@ form.addEventListener('submit', function(event) {
     const cantidad = document.getElementById('Cantidad').value;
 
     if (nombre === ''){
-        alert('Por favor, ingresa datos en todos los campos');
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, ingresa datos en todos los campos',
+        });
         return;
     }
 
