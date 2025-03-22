@@ -1,6 +1,22 @@
 const form =document.getElementById('formularioCompras');
 const resumenCompra =document.getElementById('resumenCompra');
 
+fetch('listaProductos.json')
+    .then(response => response.json())
+    .then(productos => {
+        generarOpcionesProductos(productos);
+    });
+
+function generarOpcionesProductos(productos) {
+    const articuloInput = document.getElementById('articulo');
+    productos.forEach(producto => {
+        const option = document.createElement('option');
+        option.value = producto.nombre;
+        option.textContent = producto.nombre;
+        articuloInput.appendChild(option);
+    });
+}
+
 form.addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que se recargue la pagina
 
@@ -21,9 +37,23 @@ form.addEventListener('submit', function(event) {
         return;
     }
 
-    //Mensaje a modo resumen de  lo ingresado
-    let resumen = `Hola, ${nombre}. Cuando empaquetemos tu compra (${articulo}), te avisaremos a ${email}`;
-    resumenCompra.textContent = resumen;
+    fetch('listaProductos.json')
+    .then(response => response.json())
+    .then(productos => {
+        const productoSeleccionado = productos.find(producto => producto.nombre === articulo);
+        const total = productoSeleccionado.precio * cantidad;
+
+        let resumen = `
+            <h2>Resumen de la compra</h2>
+            <p><strong>Nombre:</strong> ${nombre}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>País:</strong> ${pais}</p>
+            <p><strong>Artículo:</strong> ${articulo}</p>
+            <p><strong>Cantidad:</strong> ${cantidad}</p>
+            <p><strong>Total:</strong> $${total}</p>
+        `;
+        resumenCompra.innerHTML = resumen;
+    });
 
     //localstorage: guardo los datos ingresados por el usuario
 
@@ -33,26 +63,11 @@ form.addEventListener('submit', function(event) {
     localStorage.setItem('articulo',articulo);
     localStorage.setItem('Cantidad',cantidad);
 
+    document.getElementById('nombre').value = localStorage.getItem('nombre') || '';
+    document.getElementById('email').value = localStorage.getItem('email') || '';
+    document.getElementById('pais').value = localStorage.getItem('pais') || '';
+    document.getElementById('articulo').value = localStorage.getItem('articulo') || '';
+    document.getElementById('Cantidad').value = localStorage.getItem('Cantidad') || '';
 
-    const nombreGuardado =localStorage.getItem('nombre');
-    if(nombreGuardado){
-        document.getElementById('nombre').value =nombreGuardado
-    }
-    const emailGuardado =localStorage.getItem('email');
-    if(emailGuardado){
-        document.getElementById('email').value =emailGuardado
-    }
-    const paisGuardado =localStorage.getItem('pais');
-    if(paisGuardado){
-        document.getElementById('pais').value =paisGuardado
-    }
-    const articuloGuardado =localStorage.getItem('articulo');
-    if(articuloGuardado){
-        document.getElementById('articulo').value =articuloGuardado
-    }
-    const cantidadGuardado =localStorage.getItem('Cantidad');
-    if(cantidadGuardado){
-        document.getElementById('Cantidad').value =cantidadGuardado
-    }
 })
 

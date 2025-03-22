@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrega N°2</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/Style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -17,11 +17,13 @@
         <p>Datos Personales</p>
     </div>
     <section>
-        <form id="formularioCompras" action="/enviar_datos" method="post">
+        <form id="formularioCompras" action="#" method="post">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" /><br /><br />
+            <input type="text" id="nombre" name="nombre" required/><br /><br />
+
             <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" /><br /><br />
+            <input type="email" id="email" name="email" required/><br /><br />
+
             <label for="pais">País:</label>
             <select id="pais" name="pais">
                 <option value="argentina">Argentina</option>
@@ -29,16 +31,19 @@
                 <option value="uruguay">Uruguay</option>
                 <option value="chile">Chile</option>
             </select><br /><br />
+
             <label for="articulo">Articulo:</label>
-            <input type="text" id="articulo" name="Articulo" /><br /><br />
+            <select id="articulo" name="articulo" ></select>
+
             <label for="cantidad">Cantidad:</label>
-            <input type="number" id="Cantidad" name="Cantidad" /><br /><br />
+            <input type="number" id="Cantidad" name="Cantidad" min="1" value="1" required /><br /><br />
+
             <button type="submit">Enviar</button>
         </form>
     </section>
 
     <section id="resultados">
-        <h2>Resumen de la solicitud</h2>
+        <!-- <h2>Resumen de la solicitud</h2> -->
         <div id="resumenCompra">
         </div>
         
