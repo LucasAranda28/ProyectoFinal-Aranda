@@ -4,7 +4,7 @@
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: gray;
+    background-color: whitesmoke;
 }
 section{
     margin: 50px 30px;
@@ -20,7 +20,7 @@ p{
 }
 form{
     display: block;
-    background-color: wheat;
+    background-color:cadetblue;
     border-radius: 15px;
     padding:40px;
 }
@@ -33,7 +33,7 @@ form{
 .subtitulo{
     padding: 0px 40px;
     p{
-        color: blueviolet;
+        color: black;
         font-size: x-large;
     }
 }
